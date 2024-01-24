@@ -12,5 +12,10 @@ const rooms = {
     treasureRoom: {
         description: "You've found the treasure room! There's a massive chest in the center. Congratulations!",
         exits: {west: 'hallway'},
-    }
+    },
 };
+
+//room: {
+//    description: "",
+//    exits: {north: '', south: '', east: '', west: ''};
+//},

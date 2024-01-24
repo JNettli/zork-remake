@@ -1,12 +1,25 @@
+
+
 function handleCommand(command) {
     let output = '';
 
     switch(command) {
-        case 'look':
+        case 'look', 'l':
             output = rooms[currentRoom].description;
             break;
 
-        case 'go north':
+        case 'bag', 'inventory', 'inv', 'i':
+            if (inventory.length == 0) {
+                output = "You have nothing in your inventory.";
+            } else {
+                output = "You have the following items in your inventory:";
+                for (var i = 0; i < inventory.length; i++) {
+                    output = `${i + 1}. ${inventory[i]}`;
+                }
+            }
+            break;
+
+        case 'go north', 'go n', 'n', 'north':
             if(rooms[currentRoom].exits.north) {
                 currentRoom = rooms[currentRoom].exits.north;
                 output = rooms[currentRoom].description;
@@ -15,7 +28,7 @@ function handleCommand(command) {
             }
             break;
 
-        case 'go south':
+        case 'go south', 'go s', 's', 'south':
             if(rooms[currentRoom].exits.south) {
                 currentRoom = rooms[currentRoom].exits.south;
                 output = rooms[currentRoom].description;
@@ -24,7 +37,7 @@ function handleCommand(command) {
             }
             break;
 
-        case 'go east':
+        case 'go east', 'go e', 'e', 'east':
             if(rooms[currentRoom].exits.east) {
                 currentRoom = rooms[currentRoom].exits.east;
                 output = rooms[currentRoom].description;
@@ -33,7 +46,7 @@ function handleCommand(command) {
             }
             break;
 
-        case 'go west':
+        case 'go west', 'go w', 'w', 'west':
             if(rooms[currentRoom].exits.west) {
                 currentRoom = rooms[currentRoom].exits.west;
                 output = rooms[currentRoom].description;
