@@ -1,15 +1,5 @@
 var inventory = [];
-
-function showInventory() {
-  if (inventory.length == 0) {
-    output = "You have nothing in your inventory.";
-    } else {
-        output = "You have the following items in your inventory:";
-        for (var i = 0; i < inventory.length; i++) {
-            output = `${i + 1}. ${inventory[i]}`;
-        }
-    }
-}
+const items = ["Lantern", "Wooden Sword", "Rock"];
 
 // Create a function to add an item to the inventory
 function addItem(item) {
