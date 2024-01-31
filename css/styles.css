@@ -5,10 +5,12 @@
 }
 
 body, html {
-    background-color: #02020B;
+    background-color: #020204;
     color: #12d400;
     height: 100%;
     margin: 0;
+    scrollbar-color: #12d400 #020204;
+    scrollbar-width: none;
 }
 
 #terminal {
@@ -38,4 +40,3 @@ body, html {
     white-space: pre;
     font-size: 20px;
 }
-
