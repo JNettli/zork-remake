@@ -1,12 +1,12 @@
-const inputEl = document.getElementById('input');
-const outputEl = document.getElementById('output');
+const inputEl = document.getElementById("input");
+const outputEl = document.getElementById("output");
 
 inputEl.focus();
-inputEl.addEventListener('keydown', (event) => {
-    if (event.key === 'Enter') {
+inputEl.addEventListener("keydown", (event) => {
+    if (event.key === "Enter") {
         const command = inputEl.value;
         handleCommand(command);
-        inputEl.value = '';
+        inputEl.value = "";
     }
 });
 
