@@ -14,8 +14,9 @@ function handleCommand(command) {
             if (inventory.length == 0) {
                 output = "You have nothing in your inventory.";
             } else {
+                output = "You have the following items in your inventory: ";
                 for (var i = 0; i < inventory.length; i++) {
-                    output = `${inventory[i]}`;
+                    output += `<div>${[i + 1]}. ${inventory[i]}</div>\n`;
                 }
             }
             break;
@@ -25,8 +26,13 @@ function handleCommand(command) {
         case 'n':
         case 'north':
             if(rooms[currentRoom].exits.north) {
-                currentRoom = rooms[currentRoom].exits.north;
-                output = rooms[currentRoom].description;
+                var nextRoom = rooms[currentRoom].exits.north;
+                if (rooms[nextRoom].dark == false || inventory.includes("Lantern")) {
+                    currentRoom = nextRoom;
+                    output = rooms[currentRoom].description;
+                } else {
+                    output = "The room is too dark to move.";
+                }
             } else {
                 output = "You can't go that way.";
             }
@@ -37,8 +43,13 @@ function handleCommand(command) {
         case 's':
         case 'south':
             if(rooms[currentRoom].exits.south) {
-                currentRoom = rooms[currentRoom].exits.south;
-                output = rooms[currentRoom].description;
+                var nextRoom = rooms[currentRoom].exits.south;
+                if (rooms[nextRoom].dark == false || inventory.includes("Lantern")) {
+                    currentRoom = nextRoom;
+                    output = rooms[currentRoom].description;
+                } else {
+                    output = "The room is too dark to move.";
+                }
             } else {
                 output = "You can't go that way.";
             }
@@ -49,8 +60,13 @@ function handleCommand(command) {
         case 'e':
         case 'east':
             if(rooms[currentRoom].exits.east) {
-                currentRoom = rooms[currentRoom].exits.east;
-                output = rooms[currentRoom].description;
+                var nextRoom = rooms[currentRoom].exits.east;
+                if (rooms[nextRoom].dark == false || inventory.includes("Lantern")) {
+                    currentRoom = nextRoom;
+                    output = rooms[currentRoom].description;
+                } else {
+                    output = "The room is too dark to move.";
+                }
             } else {
                 output = "You can't go that way.";
             }
@@ -61,9 +77,13 @@ function handleCommand(command) {
         case 'w':
         case 'west':
             if(rooms[currentRoom].exits.west) {
-                currentRoom = rooms[currentRoom].exits.west;
-                output = rooms[currentRoom].description;
-
+                var nextRoom = rooms[currentRoom].exits.west;
+                if(rooms[nextRoom].dark == false || inventory.includes("Lantern")) {
+                    currentRoom = rooms[currentRoom].exits.west;
+                    output = rooms[currentRoom].description;
+                } else {
+                    output = "The room is too dark to move.";
+                }
             } else {
                 output = "You can't go that way.";
             }
@@ -99,6 +119,27 @@ function handleCommand(command) {
             } else {
                 output = "There is no sword here.";
             }
+            break;
+
+        case 'rock':
+        case 'take rock':
+        case 'pick up rock':
+        case 'pickup rock':
+            if (rooms[currentRoom].items.includes("Rock")) {
+                inventory.push("Rock");
+                output = "You have added Dwayne to your inventory.";
+            } else {
+                output = "There is no rock here.";
+            }
+            break;
+
+        case 'reset':
+        case 'reload':
+            output = "Restarting game... Please hold...";
+            function restart() {
+                location.reload();
+            }
+            setTimeout(restart,666);
             break;
 
         default:
