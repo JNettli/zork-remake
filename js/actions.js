@@ -1,5 +1,5 @@
 function handleCommand(command) {
-    let output = "";
+    let output = ``;
 
     switch (command) {
         case "look":
@@ -105,12 +105,73 @@ function handleCommand(command) {
             }
             break;
 
+        case "go northwest":
+        case "go nw":
+        case "nw":
+        case "northwest":
+            if (rooms[currentRoom].exits.northWest) {
+                var nextRoom = rooms[currentRoom].exits.northWest;
+                if (
+                    rooms[nextRoom].dark == false ||
+                    inventory.includes("Lantern")
+                ) {
+                    currentRoom = nextRoom;
+                    output = rooms[currentRoom].description;
+                } else {
+                    output = "The room is too dark to move.";
+                }
+            } else {
+                output = "You can't go that way.";
+            }
+            break;
+
+        case "go up":
+        case "up":
+            if (rooms[currentRoom].exits.up) {
+                var nextRoom = rooms[currentRoom].exits.up;
+                if (
+                    rooms[nextRoom].dark == false ||
+                    inventory.includes("Lantern")
+                ) {
+                    currentRoom = nextRoom;
+                    output = rooms[currentRoom].description;
+                } else {
+                    output = "It's far too dark up there.";
+                }
+            } else {
+                output = "There's nowhere to go up.";
+            }
+            break;
+
+        case "go down":
+        case "down":
+            if (rooms[currentRoom].exits.down) {
+                var nextRoom = rooms[currentRoom].exits.down;
+                if (
+                    rooms[nextRoom].dark == false ||
+                    inventory.includes("Lantern")
+                ) {
+                    currentRoom = nextRoom;
+                    output = rooms[currentRoom].description;
+                } else {
+                    output = "It's far too dark down there.";
+                }
+            } else {
+                output = "There's nowhere to go down.";
+            }
+            break;
+
         case "pickup":
             output = "What do you want to pickup?";
             break;
 
         case "take":
             output = "What do you want to take?";
+            break;
+
+        case "take item":
+        case "take items":
+            output = "What item you want to take?";
             break;
 
         case "take lantern":
@@ -160,6 +221,10 @@ function handleCommand(command) {
                 location.reload();
             }
             setTimeout(restart, 666);
+            break;
+
+        case "help":
+            output = `<br>This is a remake of the text-based game Zork.<br>You have to type in different commands to control where you go and what you do. <br><br>Here are some basic movement commands:<br><br>- go *direction* (You can go north, east, south, west, up or down)<br>- take *item* (You can pick up several different items on your journey. You must define what item specifically you want to pick up.)<br>- look (Get your bearings in the room you are currently in.)<br>- yay (Celebrate!)<br>- reset / restart (reset and restart the game)`;
             break;
 
         default:

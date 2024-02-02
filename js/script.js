@@ -11,4 +11,4 @@ inputEl.addEventListener("keydown", (event) => {
 });
 
 // Initial description
-outputEl.innerHTML += `<div class="prompt"></div><div>Welcome to my Zork Remake!</div><br><div>${rooms[currentRoom].description}</div>`;
+outputEl.innerHTML += `<div class="prompt"></div><div style="font-size:40px; font-weight:600">Welcome to my Zork Remake!</div><br><div>This is a remake of the classic text-based adventure game Zork! The story is completely original, the game is just very inspired by the original game. Please have fun and give me feedback on Github if you want! :)<br><br><br></div><div>${rooms[currentRoom].description}</div>`;
