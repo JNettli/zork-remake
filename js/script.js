@@ -11,4 +11,4 @@ inputEl.addEventListener("keydown", (event) => {
 });
 
 // Initial description
-outputEl.innerHTML += `<div class="prompt"></div><div>Welcome to my Zork Remake!</div><div>${rooms[currentRoom].description}</div>`;
+outputEl.innerHTML += `<div class="prompt"></div><div>Welcome to my Zork Remake!</div><br><div>${rooms[currentRoom].description}</div>`;

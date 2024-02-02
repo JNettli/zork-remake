@@ -4,7 +4,11 @@ function handleCommand(command) {
     switch (command) {
         case "look":
         case "l":
-            output = rooms[currentRoom].description;
+            if(rooms[currentRoom].shortDescription) {
+                output = rooms[currentRoom].shortDescription;
+            } else {
+                output = rooms[currentRoom].description;
+            }
             break;
 
         case "bag":
@@ -143,6 +147,10 @@ function handleCommand(command) {
             } else {
                 output = "There is no rock here.";
             }
+            break;
+
+        case "yay":
+            output = "Yippieeeeeee!";
             break;
 
         case "reset":

@@ -3,9 +3,10 @@ let currentRoom = "start";
 const rooms = {
     start: {
         description:
-            "You are in a dark room. There is a door to the north. There is a lantern by the north door.",
+            `You wake up in a dark and damp dungeon cell. You have no idea how you got here or who put you here. You only know that you have to escape. <br><br>You look around and see a rusty iron door, a small window with iron bars, a straw mattress, a wooden bucket, and a flickering torch on the wall. <br><br>What do you do?`,
+        shortDescription: "You look around and see a rusty iron door, a small window with iron bars, a straw mattress, a wooden bucket, and a flickering torch on the wall.",
         exits: { north: "hallway" },
-        items: ["Lantern"],
+        items: ["Torch", "Bucket"],
         dark: false,
     },
     hallway: {
@@ -22,11 +23,17 @@ const rooms = {
         items: ["Rock"],
         dark: true,
     },
+    room: {
+        description: "",
+        exits: {north: '', south: '', east: '', west: ''},
+        items: [],
+        dark: false,
+    },
 };
 
-//room: {
-//    description: "",
-//    exits: {north: '', south: '', east: '', west: ''},
-//    items: [],
-//    dark: false,
-//},
+// room: {
+//     description: "",
+//     exits: {north: '', south: '', east: '', west: ''},
+//     items: [],
+//     dark: false,
+// },
