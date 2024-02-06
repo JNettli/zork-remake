@@ -214,6 +214,10 @@ function handleCommand(command) {
             output = "Yippieeeeeee!";
             break;
 
+        case "vilde":
+            output = "Fineste <3";
+            break;
+
         case "reset":
         case "reload":
             output = "Restarting game... Please hold...";
