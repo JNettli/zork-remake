@@ -1,12 +1,18 @@
 const inputEl = document.getElementById("input");
-const outputEl = document.getElementById("output");
+const outputEl = document.getElementById("output")
+
+function updateScroll(){
+    var element = document.getElementById("output");
+    element.scrollTop = element.scrollHeight;
+}
 
 inputEl.focus();
 inputEl.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
         const command = inputEl.value;
-        handleCommand(command);
         inputEl.value = "";
+        handleCommand(command);
+        updateScroll();
     }
 });
 

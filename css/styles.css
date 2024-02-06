@@ -17,16 +17,22 @@ html {
 #terminal {
     padding: 20px;
     height: 100%;
-    overflow-y: auto;
+    overflow-y: visible;
 }
 
 #input-line {
     display: flex;
     align-items: center;
+    padding: 16px 0;
 }
 
 .prompt {
     margin-right: 5px;
+}
+
+#output {
+    max-height: 95%;
+    overflow-y: scroll;
 }
 
 #input {
