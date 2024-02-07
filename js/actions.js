@@ -4,7 +4,7 @@ function handleCommand(command) {
     switch (command) {
         case "look":
         case "l":
-            if(rooms[currentRoom].shortDescription) {
+            if (rooms[currentRoom].shortDescription) {
                 output = rooms[currentRoom].shortDescription;
             } else {
                 output = rooms[currentRoom].description;
@@ -111,6 +111,66 @@ function handleCommand(command) {
         case "northwest":
             if (rooms[currentRoom].exits.northWest) {
                 var nextRoom = rooms[currentRoom].exits.northWest;
+                if (
+                    rooms[nextRoom].dark == false ||
+                    inventory.includes("Lantern")
+                ) {
+                    currentRoom = nextRoom;
+                    output = rooms[currentRoom].description;
+                } else {
+                    output = "The room is too dark to move.";
+                }
+            } else {
+                output = "You can't go that way.";
+            }
+            break;
+
+        case "go northeast":
+        case "go ne":
+        case "ne":
+        case "northeast":
+            if (rooms[currentRoom].exits.northEast) {
+                var nextRoom = rooms[currentRoom].exits.northEast;
+                if (
+                    rooms[nextRoom].dark == false ||
+                    inventory.includes("Lantern")
+                ) {
+                    currentRoom = nextRoom;
+                    output = rooms[currentRoom].description;
+                } else {
+                    output = "The room is too dark to move.";
+                }
+            } else {
+                output = "You can't go that way.";
+            }
+            break;
+
+        case "go southwest":
+        case "go sw":
+        case "sw":
+        case "southwest":
+            if (rooms[currentRoom].exits.southWest) {
+                var nextRoom = rooms[currentRoom].exits.southWest;
+                if (
+                    rooms[nextRoom].dark == false ||
+                    inventory.includes("Lantern")
+                ) {
+                    currentRoom = nextRoom;
+                    output = rooms[currentRoom].description;
+                } else {
+                    output = "The room is too dark to move.";
+                }
+            } else {
+                output = "You can't go that way.";
+            }
+            break;
+
+        case "go southeast":
+        case "go se":
+        case "se":
+        case "southeast":
+            if (rooms[currentRoom].exits.southEast) {
+                var nextRoom = rooms[currentRoom].exits.southEast;
                 if (
                     rooms[nextRoom].dark == false ||
                     inventory.includes("Lantern")
