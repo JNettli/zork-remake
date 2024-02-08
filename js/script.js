@@ -9,6 +9,7 @@ function updateScroll(){
 inputEl.focus();
 inputEl.addEventListener("keydown", (event) => {
     if (event.key === "Enter") {
+        inputEl.value = inputEl.value.toLowerCase();
         const command = inputEl.value;
         inputEl.value = "";
         handleCommand(command);
