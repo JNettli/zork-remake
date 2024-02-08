@@ -12,9 +12,9 @@ const rooms = {
     },
     dungeonCorridor: {
         description:
-            `You step out of the cell and into the corridor. It is long and narrow, with stone walls and a low ceiling. You see more iron doors on both sides, some open and some closed. <br><br>The door you came from, to the south, is numbered Cell #1.<br><br>You see a staircase at the end of the corridor, leading up to a wooden door.<br><br>What do you do?`,
+            `You find yourself in a large octagonal jail room, with iron cell doors on all sides and a heavy wooden door to the north. The only light comes from a small window high above, where you can see a sliver of sky. The floor is cold and damp, but underneath you can see a compass etched into the stone floor.<br><br>The door you came from is to the south and is numbered Cell #1.<br><br>To the north is the heavy wooden door. To the northwest is a cell door where you can hear faint moaning and clanking of chains.<br><br>To the east, southeast, southwest, west and northwest are open cell doors.<br><br>What do you do?`,
         shortDescription: 
-            "You take a look around and see more iron doors on both sides. They are numbered. Cell #2, which is open, Cell #3 which is closed and Cell #4 which is open. There is a wooden door at the top of a staircase at the end of the corridor to the north. Behind you to the south is an iron door numbered Cell #1. This is where you woke up.",
+            "To the north is the heavy wooden door. To the northwest is a cell door where you can hear faint moaning and clanking of chains.<br><br>To the east, southeast, southwest, west and northwest are open cell doors.",
         exits: { south: "start", west: "dungeonCell4" },
         items: [],
         dark: false,

@@ -279,6 +279,7 @@ function handleCommand(command) {
             break;
 
         case "reset":
+        case "restart":
         case "reload":
             output = "Restarting game... Please hold...";
             function restart() {
