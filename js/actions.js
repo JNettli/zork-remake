@@ -25,6 +25,20 @@ function handleCommand(command) {
             }
             break;
 
+        case "k":
+        case "key":
+        case "keys":
+        case "keyring":
+            if (keyring.length == 0) {
+                output = "You have nothing on your keyring.";
+            } else {
+                output = "You have the following items on your keyring: ";
+                for (var i = 0; i < keyring.length; i++) {
+                    output += `<div>${[i + 1]}. ${keyring[i]}</div>\n`;
+                }
+            }
+            break;
+        
         case "go north":
         case "go n":
         case "n":
@@ -234,6 +248,33 @@ function handleCommand(command) {
             output = "What item you want to take?";
             break;
 
+        case "take torch":
+            output = "The torch is affixed securely to the wall. You cannot remove the torch from it's sconce.";
+            break;
+
+        case "bucket":
+        case "take bucket":
+        case "pick up bucket":
+        case "pickup bucket":
+            if (rooms[currentRoom].items.includes("Bucket")) {
+                inventory.push("Bucket");
+                output = "You have added bucket to your inventory... It smells funny.";
+            } else {
+                output = "There is no bucket here.";
+            }
+            break;
+
+        case "take key":
+        case "pick up key":
+        case "pickup key":
+            if (rooms[currentRoom].items.includes("Bucket") && rooms[currentRoom].keys.includes("Your Cell Key")) {
+                output = "There is no key here.";
+            } else {
+                keyring.push("Your Cell Key");
+                output = "You have added your cell key to your keyring.";
+            }
+            break;
+
         case "take lantern":
         case "pickup lantern":
         case "pick up lantern":
@@ -258,6 +299,21 @@ function handleCommand(command) {
             }
             break;
 
+        case "take dagger":
+        case "pickup dagger":
+        case "pick up dagger":
+        case "take rusty dagger":
+        case "pickup rusty dagger":
+        case "pick up rusty dagger":
+            if (rooms[currentRoom].items.includes("Rusty Dagger")) {
+                inventory.push("Rusty Dagger");
+                output =
+                    "You picked up the wooden dagger and added it to your inventory.";
+            } else {
+                output = "There is no dagger here.";
+            }
+            break;
+
         case "rock":
         case "take rock":
         case "pick up rock":
@@ -274,8 +330,20 @@ function handleCommand(command) {
             output = "Yippieeeeeee!";
             break;
 
-        case "vilde":
-            output = "Fineste <3";
+        case "stop":
+            output = "Hammer time.";
+            break;
+
+        case "ur mom":
+        case "your mom":
+        case "gay":
+        case "gey":
+        case "u":
+        case "no u":
+        case "no u.":
+        case "no you":
+        case "no you.":
+            output = "no u.";
             break;
 
         case "reset":
@@ -289,7 +357,7 @@ function handleCommand(command) {
             break;
 
         case "help":
-            output = `<br>This is a remake of the text-based game Zork.<br>You have to type in different commands to control where you go and what you do. <br><br>Here are some basic movement commands:<br><br>- go *direction* (You can go north, east, south, west, up or down)<br>- take *item* (You can pick up several different items on your journey. You must define what item specifically you want to pick up.)<br>- look (Get your bearings in the room you are currently in.)<br>- yay (Celebrate!)<br>- reset / restart (reset and restart the game)`;
+            output = `<br>This is a remake of the text-based game Zork.<br>You have to type in different commands to control where you go and what you do. <br><br>Here are some basic movement commands:<br><br>- help (This menu)<br>- go *direction* (You can go north, east, south, west, up or down)<br>- take *item* (You can pick up several different items on your journey. You must define what item specifically you want to pick up.)<br>- look (Get your bearings in the room you are currently in.)<br>- inventory (Check what items you are currently carrying with you.)<br>- keyring (Check what keys you currently have on your keyring.)<br>- yay (Celebrate!)<br>- reset / restart (reset and restart the game)`;
             break;
 
         default:

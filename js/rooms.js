@@ -3,11 +3,14 @@ let currentRoom = "start";
 const rooms = {
     start: {
         description:
-            `You wake up in a dark and damp dungeon cell. You have no idea how you got here or who put you here. You only know that you have to escape.<br><br>You look around and see a rusty iron door to the north, a small window with iron bars to the west, a straw mattress, a wooden bucket, and a flickering torch on the wall.<br><br>What do you do?`,
+            `You wake up in a dark and damp dungeon cell. You have no idea how you got here or who put you here. You only know that you have to escape.<br><br>You look around and see a rusty iron door to the north, a small window with iron bars to the west, a straw mattress, a wooden bucket, and a flickering torch on the wall. All you have on you are some rags covering you and a keyring.<br><br>What do you do?`,
         shortDescription: 
             "You look around and see a rusty iron door to the north, a small window with iron bars to the west, a straw mattress, a wooden bucket, and a flickering torch on the wall.",
+        altDescription: 
+            "You see a flickering where the bucket previously stood on the floor. It looks like a key!",
         exits: { north: "dungeonCorridor" },
-        items: ["Torch", "Bucket", "Your Cell Key"],
+        items: ["Bucket"],
+        keys: ["Your Cell Key"],
         dark: false,
     },
     dungeonCorridor: {
@@ -36,12 +39,3 @@ const rooms = {
         dark: false,
     },
 };
-
-// room: {
-//     description: "",
-//     shortDescription: "",
-//     altDescription: "",
-//     exits: {north: '', south: '', east: '', west: '', up: '', down: ''},
-//     items: [],
-//     dark: false,
-// },

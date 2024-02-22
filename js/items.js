@@ -1,3 +1,25 @@
 var inventory = [];
-const items = ["Lantern", "Rusty Sword", "Rock", "Bucket", "Torch"];
+var keyring = [];
+const items = ["Lantern", "Rusty Dagger", "Rock", "Bucket"];
 const keys = ["Your Cell Key", "Dungeon Corridor North",];
+
+// room: {
+//     description: "",
+//     shortDescription: "",
+//     altDescription: "",
+//     exits: {north: '', south: '', east: '', west: '', up: '', down: ''},
+//     items: [],
+//     dark: false,
+// },
+
+// case "ITEM":
+//     case "take ITEM":
+//     case "pick up ITEM":
+//     case "pickup ITEM":
+//         if (rooms[currentRoom].items.includes("ITEM")) {
+//             inventory.push("ITEM");
+//             output = "You have added ITEM to your inventory.";
+//         } else {
+//             output = "There is no ITEM here.";
+//         }
+//         break;
