@@ -12,6 +12,7 @@ const rooms = {
         items: ["Bucket"],
         keys: ["Your Cell Key"],
         dark: false,
+        death: false,
     },
     dungeonCorridor: {
         description:
@@ -21,6 +22,7 @@ const rooms = {
         exits: { south: "start", west: "dungeonCell4" },
         items: [],
         dark: false,
+        death: false,
     },
     dungeonCell4: {
         description:
@@ -30,6 +32,7 @@ const rooms = {
         exits: { east: "dungeonCorridor", down: "deathHoleInFloor"},
         items: [],
         dark: false,
+        death: false,
     },
     deathHoleInFloor: {
         description: 
@@ -37,5 +40,6 @@ const rooms = {
         exits: {},
         items: [],
         dark: false,
+        death: true,
     },
 };
