@@ -328,6 +328,7 @@ function handleCommand(command) {
 
         case "yay":
             output = "Yippieeeeeee!";
+            new Audio("../assets/audio/yippee.mp3").play();
             break;
 
         case "stop":
@@ -349,6 +350,7 @@ function handleCommand(command) {
         case "reset":
         case "restart":
         case "reload":
+            rooms[currentRoom].death = false;
             output = "Restarting game... Please hold...";
             function restart() {
                 location.reload();
@@ -362,6 +364,9 @@ function handleCommand(command) {
 
         default:
             output = "I don't know what " + command + " means.";
+    }
+    if(rooms[currentRoom].death == true) {
+        new Audio("../assets/audio/wilhelm.mp3").play();
     }
 
     outputEl.innerHTML += `<div class="prompt"></div><div>${command}</div><div>${output}</div>`;
