@@ -333,6 +333,7 @@ function handleCommand(command) {
 
         case "stop":
             output = "Hammer time.";
+            new Audio("../assets/audio/stop.mp3").play();
             break;
 
         case "ur mom":
@@ -345,6 +346,11 @@ function handleCommand(command) {
         case "no you":
         case "no you.":
             output = "no u.";
+            break;
+
+        case "a q p":
+            output = "...W";
+            new Audio("../assets/audio/nice.mp3").play();
             break;
 
         case "reset":

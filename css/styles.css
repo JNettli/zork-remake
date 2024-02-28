@@ -5,7 +5,8 @@
 }
 
 body,
-html {
+html,
+a {
     background-color: #020204;
     color: #12d400;
     height: 100%;

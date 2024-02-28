@@ -13,6 +13,7 @@ const rooms = {
         keys: ["Your Cell Key"],
         dark: false,
         death: false,
+        req: "",
     },
     dungeonCorridor: {
         description:
