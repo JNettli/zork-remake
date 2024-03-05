@@ -13,7 +13,9 @@ const rooms = {
         keys: ["Your Cell Key"],
         dark: false,
         death: false,
-        req: "",
+        isLocked: false,
+        isOpen: true,
+        keyId: "",
     },
     dungeonCorridor: {
         description:
@@ -24,6 +26,9 @@ const rooms = {
         items: [],
         dark: false,
         death: false,
+        isLocked: true,
+        isOpen: false,
+        keyId: "Your Cell Key",
     },
     dungeonCell4: {
         description:
@@ -34,6 +39,9 @@ const rooms = {
         items: [],
         dark: false,
         death: false,
+        isLocked: false,
+        isOpen: true,
+        keyId: "",
     },
     deathHoleInFloor: {
         description: 
@@ -42,5 +50,8 @@ const rooms = {
         items: [],
         dark: false,
         death: true,
+        isLocked: false,
+        isOpen: true,
+        keyId: "",
     },
 };
