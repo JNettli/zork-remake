@@ -38,6 +38,15 @@ function handleCommand(command) {
                 }
             }
             break;
+
+        case "take key":
+            if(rooms[currentRoom].keys.length > 0) {
+                keyring.push(rooms[currentRoom].keys[0]);
+                output = "You have added the key to your keyring.";
+            } else {
+                output = "There is no key here.";
+            }
+            break;
         
         case "go north":
         case "go n":
@@ -45,9 +54,11 @@ function handleCommand(command) {
         case "north":
             if (rooms[currentRoom].exits.north) {
                 var nextRoom = rooms[currentRoom].exits.north;
-                if (
+                if (rooms[nextRoom].isLocked == true){
+                    output = "The door is locked.";
+                } else if (
                     rooms[nextRoom].dark == false ||
-                    inventory.includes("Lantern")
+                    inventory.includes("Lantern") 
                 ) {
                     currentRoom = nextRoom;
                     output = rooms[currentRoom].description;
@@ -65,7 +76,9 @@ function handleCommand(command) {
         case "south":
             if (rooms[currentRoom].exits.south) {
                 var nextRoom = rooms[currentRoom].exits.south;
-                if (
+                if (rooms[nextRoom].isLocked == true){
+                    output = "The door is locked.";
+                } else if (
                     rooms[nextRoom].dark == false ||
                     inventory.includes("Lantern")
                 ) {
@@ -85,7 +98,9 @@ function handleCommand(command) {
         case "east":
             if (rooms[currentRoom].exits.east) {
                 var nextRoom = rooms[currentRoom].exits.east;
-                if (
+                if (rooms[nextRoom].isLocked == true){
+                    output = "The door is locked.";
+                } else if (
                     rooms[nextRoom].dark == false ||
                     inventory.includes("Lantern")
                 ) {
@@ -105,7 +120,9 @@ function handleCommand(command) {
         case "west":
             if (rooms[currentRoom].exits.west) {
                 var nextRoom = rooms[currentRoom].exits.west;
-                if (
+                if (rooms[nextRoom].isLocked == true){
+                    output = "The door is locked.";
+                } else if (
                     rooms[nextRoom].dark == false ||
                     inventory.includes("Lantern")
                 ) {
@@ -125,7 +142,9 @@ function handleCommand(command) {
         case "northwest":
             if (rooms[currentRoom].exits.northWest) {
                 var nextRoom = rooms[currentRoom].exits.northWest;
-                if (
+                if (rooms[nextRoom].isLocked == true){
+                    output = "The door is locked.";
+                } else if (
                     rooms[nextRoom].dark == false ||
                     inventory.includes("Lantern")
                 ) {
@@ -145,7 +164,9 @@ function handleCommand(command) {
         case "northeast":
             if (rooms[currentRoom].exits.northEast) {
                 var nextRoom = rooms[currentRoom].exits.northEast;
-                if (
+                if (rooms[nextRoom].isLocked == true){
+                    output = "The door is locked.";
+                } else if (
                     rooms[nextRoom].dark == false ||
                     inventory.includes("Lantern")
                 ) {
@@ -165,8 +186,9 @@ function handleCommand(command) {
         case "southwest":
             if (rooms[currentRoom].exits.southWest) {
                 var nextRoom = rooms[currentRoom].exits.southWest;
-                if (
-                    rooms[nextRoom].dark == false ||
+                if (rooms[nextRoom].isLocked == true){
+                    output = "The door is locked.";
+                } else if (rooms[nextRoom].dark == false ||
                     inventory.includes("Lantern")
                 ) {
                     currentRoom = nextRoom;
@@ -185,8 +207,9 @@ function handleCommand(command) {
         case "southeast":
             if (rooms[currentRoom].exits.southEast) {
                 var nextRoom = rooms[currentRoom].exits.southEast;
-                if (
-                    rooms[nextRoom].dark == false ||
+                if (rooms[nextRoom].isLocked == true){
+                    output = "The door is locked.";
+                } else if (rooms[nextRoom].dark == false ||
                     inventory.includes("Lantern")
                 ) {
                     currentRoom = nextRoom;
@@ -203,8 +226,9 @@ function handleCommand(command) {
         case "up":
             if (rooms[currentRoom].exits.up) {
                 var nextRoom = rooms[currentRoom].exits.up;
-                if (
-                    rooms[nextRoom].dark == false ||
+                if (rooms[nextRoom].isLocked == true){
+                    output = "The door is locked.";
+                } else if (rooms[nextRoom].dark == false ||
                     inventory.includes("Lantern")
                 ) {
                     currentRoom = nextRoom;
@@ -221,7 +245,9 @@ function handleCommand(command) {
         case "down":
             if (rooms[currentRoom].exits.down) {
                 var nextRoom = rooms[currentRoom].exits.down;
-                if (
+                if (rooms[nextRoom].isLocked == true){
+                    output = "The door is locked.";
+                } else if (
                     rooms[nextRoom].dark == false ||
                     inventory.includes("Lantern")
                 ) {
@@ -232,6 +258,19 @@ function handleCommand(command) {
                 }
             } else {
                 output = "There's nowhere to go down.";
+            }
+            break;
+
+        case "use key":
+            var nextRoom = rooms[currentRoom].exits.north || rooms[currentRoom].exits.east || rooms[currentRoom].exits.south || rooms[currentRoom].exits.west || rooms[currentRoom].exits.up || rooms[currentRoom].exits.down;
+            if (keyring.includes(rooms[nextRoom].keyId)) {
+                if (rooms[nextRoom].isLocked == true) {
+                    rooms[nextRoom].isLocked = false;
+                    rooms[nextRoom].isOpen = true;
+                    output = "You unlocked the door.";
+                } else {
+                    output = "There is nothing to unlock here.";
+                }
             }
             break;
 
@@ -261,17 +300,6 @@ function handleCommand(command) {
                 output = "You have added bucket to your inventory... It smells funny.";
             } else {
                 output = "There is no bucket here.";
-            }
-            break;
-
-        case "take key":
-        case "pick up key":
-        case "pickup key":
-            if (rooms[currentRoom].items.includes("Bucket") && rooms[currentRoom].keys.includes("Your Cell Key")) {
-                output = "There is no key here.";
-            } else {
-                keyring.push("Your Cell Key");
-                output = "You have added your cell key to your keyring.";
             }
             break;
 

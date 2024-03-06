@@ -10,6 +10,9 @@ const keys = ["Your Cell Key", "Dungeon Corridor North",];
 //     exits: {north: '', south: '', east: '', west: '', up: '', down: ''},
 //     items: [],
 //     dark: false,
+//     isLocked: false,
+//     isOpen: true,
+//     keyId: "",
 // },
 
 // case "ITEM":
