@@ -2,6 +2,10 @@ function handleCommand(command) {
     let output = ``;
 
     switch (command) {
+        case "":
+            output = "You have to type something.";
+            break;
+
         case "look":
         case "l":
             if (rooms[currentRoom].shortDescription) {
