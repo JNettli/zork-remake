@@ -26,6 +26,7 @@ const rooms = {
         exits: { south: "start", west: "dungeonCell4" },
         items: [],
         keyObscured: false,
+        keys: [],
         dark: false,
         death: false,
         isLocked: true,
