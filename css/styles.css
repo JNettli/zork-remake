@@ -36,6 +36,10 @@ a {
     overflow-y: scroll;
 }
 
+#output .prompt {
+    margin-top: 16px;
+}
+
 #input {
     width: 100%;
     border: none;

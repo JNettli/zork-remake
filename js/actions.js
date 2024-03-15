@@ -2,6 +2,10 @@ function handleCommand(command) {
     let output = ``;
 
     switch (command) {
+        case "":
+            output = "You have to type something.";
+            break;
+
         case "look":
         case "l":
             if (rooms[currentRoom].shortDescription) {
@@ -40,9 +44,11 @@ function handleCommand(command) {
             break;
 
         case "take key":
-            if(rooms[currentRoom].keys.length > 0) {
+            if(rooms[currentRoom].keys.length > 0 && rooms[currentRoom].keyObscured == false) {
                 keyring.push(rooms[currentRoom].keys[0]);
                 output = "You have added the key to your keyring.";
+            } else if (rooms[currentRoom].keyObscured == true) {
+                output = "There is no key here.";
             } else {
                 output = "There is no key here.";
             }
@@ -271,6 +277,8 @@ function handleCommand(command) {
                 } else {
                     output = "There is nothing to unlock here.";
                 }
+            } else {
+                output = "There is nothing to unlock here.";
             }
             break;
 
@@ -297,7 +305,8 @@ function handleCommand(command) {
         case "pickup bucket":
             if (rooms[currentRoom].items.includes("Bucket")) {
                 inventory.push("Bucket");
-                output = "You have added bucket to your inventory... It smells funny.";
+                output = `You have added bucket to your inventory... It smells funny.<br>When you picked up the bucket, you noticed something shiny on the floor. It looks like a key!`;
+                rooms[currentRoom].keyObscured = false;
             } else {
                 output = "There is no bucket here.";
             }
@@ -393,7 +402,7 @@ function handleCommand(command) {
             break;
 
         case "help":
-            output = `<br>This is a remake of the text-based game Zork.<br>You have to type in different commands to control where you go and what you do. <br><br>Here are some basic movement commands:<br><br>- help (This menu)<br>- go *direction* (You can go north, east, south, west, up or down)<br>- take *item* (You can pick up several different items on your journey. You must define what item specifically you want to pick up.)<br>- look (Get your bearings in the room you are currently in.)<br>- inventory (Check what items you are currently carrying with you.)<br>- keyring (Check what keys you currently have on your keyring.)<br>- yay (Celebrate!)<br>- reset / restart (reset and restart the game)`;
+            output = `<br>This is a remake of the text-based game Zork.<br>You have to type in different commands to control where you go and what you do. <br><br>Here are some basic movement commands:<br><br>- help (This menu)<br>- go *direction* (You can go north, east, south, west, up or down)<br>- take *item* (You can pick up several different items on your journey. You must define what item specifically you want to pick up.)<br>- use key (uses a key on a locked door accesible from your current room)<br>- look (Get your bearings in the room you are currently in.)<br>- inventory (Check what items you are currently carrying with you.)<br>- keyring (Check what keys you currently have on your keyring.)<br>- yay (Celebrate!)<br>- reset / restart (reset and restart the game)`;
             break;
 
         default:
