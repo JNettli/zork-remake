@@ -8,7 +8,9 @@ function handleCommand(command) {
 
         case "look":
         case "l":
-            if (rooms[currentRoom].shortDescription) {
+            if (rooms[currentRoom].setAltDesc == true) {
+                output = rooms[currentRoom].altDescription;
+            } else if (rooms[currentRoom].shortDescription) {
                 output = rooms[currentRoom].shortDescription;
             } else {
                 output = rooms[currentRoom].description;
@@ -307,6 +309,7 @@ function handleCommand(command) {
                 inventory.push("Bucket");
                 output = `You have added bucket to your inventory... It smells funny.<br>When you picked up the bucket, you noticed something shiny on the floor. It looks like a key!`;
                 rooms[currentRoom].keyObscured = false;
+                rooms[currentRoom].setAltDesc = true;
             } else {
                 output = "There is no bucket here.";
             }

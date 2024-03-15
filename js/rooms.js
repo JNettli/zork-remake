@@ -5,9 +5,9 @@ const rooms = {
         description:
             `You wake up in a dark and damp dungeon cell. You have no idea how you got here or who put you here. You only know that you have to escape.<br><br>All you have on you are some rags covering you and a keyring.<br><br>Maybe you should take a look around?`,
         shortDescription: 
-            `You look around and see a rusty iron door to the north, a small window with iron bars to the west, a straw mattress, a wooden bucket, and a flickering torch on the wall. The light from the torch makes something on top of the bucket shimmer. It looks like a key.`,
+            `You look around and see a rusty iron door to the north, a small window with iron bars to the west, a straw mattress, and a flickering torch on the wall. There is a bucket on the floor. It stinks a bit.`,
         altDescription: 
-            "You see a flickering where the bucket previously stood on the floor. It looks like a key!",
+            "You look around and see a rusty iron door to the north, a small window with iron bars to the west, a straw mattress, and a flickering torch on the wall. You see something shiny where the bucket previously stood on the floor. It looks like a key!",
         exits: { north: "dungeonCorridor" },
         items: ["Bucket"],
         keyObscured: true,
@@ -17,12 +17,13 @@ const rooms = {
         isLocked: false,
         isOpen: true,
         keyId: "",
+        setAltDesc: false,
     },
     dungeonCorridor: {
         description:
             `You find yourself in a large octagonal jail room, with iron cell doors on all sides and a heavy wooden door to the north. The only light comes from a small window high above, where you can see a sliver of sky. The floor is cold and damp, but underneath you can see a compass etched into the stone floor.<br><br>The door you came from is to the south and is numbered Cell #1.<br><br>To the north is the heavy wooden door. To the northwest is a cell door where you can hear faint moaning and clanking of chains.<br><br>To the east, southeast, southwest, west and northwest are open cell doors.<br><br>What do you do?`,
         shortDescription: 
-            "To the north is the heavy wooden door. To the northwest is a cell door where you can hear faint moaning and clanking of chains.<br><br>To the east, southeast, southwest, west and northwest are open cell doors.",
+            `To the north is the heavy wooden door. To the northwest is a cell door where you can hear faint moaning and clanking of chains.<br><br>To the east, southeast, southwest, west and northwest are open cell doors.`,
         exits: { south: "start", west: "dungeonCell4" },
         items: [],
         keyObscured: false,
