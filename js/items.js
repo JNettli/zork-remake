@@ -16,6 +16,8 @@ const keys = ["Your Cell Key", "Dungeon Corridor North",];
 //     isLocked: false,
 //     isOpen: true,
 //     keyId: "",
+//     setAltDesc: false,
+//     setAltDescTwo: false,
 // },
 
 // case "ITEM":

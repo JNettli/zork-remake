@@ -8,6 +8,8 @@ const rooms = {
             `You look around and see a rusty iron door to the north, a small window with iron bars to the west, a straw mattress, and a flickering torch on the wall. There is a bucket on the floor. It stinks a bit.`,
         altDescription: 
             "You look around and see a rusty iron door to the north, a small window with iron bars to the west, a straw mattress, and a flickering torch on the wall. You see something shiny where the bucket previously stood on the floor. It looks like a key!",
+        altDescTwo:
+            `You look around and see a rusty iron door to the north, a small window with iron bars to the west, a straw mattress, and a flickering torch on the wall. There is a clear indentation in the floor where the bucket previously stood. It still smells.`,
         exits: { north: "dungeonCorridor" },
         items: ["Bucket"],
         keyObscured: true,
@@ -18,6 +20,7 @@ const rooms = {
         isOpen: true,
         keyId: "",
         setAltDesc: false,
+        setAltDescTwo: false,
     },
     dungeonCorridor: {
         description:

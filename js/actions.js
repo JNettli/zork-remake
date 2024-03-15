@@ -8,7 +8,9 @@ function handleCommand(command) {
 
         case "look":
         case "l":
-            if (rooms[currentRoom].setAltDesc == true) {
+            if (rooms[currentRoom].setAltDescTwo == true) {
+                output = rooms[currentRoom].altDescTwo;
+            } else if (rooms[currentRoom].setAltDesc == true) {
                 output = rooms[currentRoom].altDescription;
             } else if (rooms[currentRoom].shortDescription) {
                 output = rooms[currentRoom].shortDescription;
@@ -49,6 +51,7 @@ function handleCommand(command) {
             if(rooms[currentRoom].keys.length > 0 && rooms[currentRoom].keyObscured == false) {
                 keyring.push(rooms[currentRoom].keys[0]);
                 output = "You have added the key to your keyring.";
+                rooms[currentRoom].setAltDescTwo = true;
             } else if (rooms[currentRoom].keyObscured == true) {
                 output = "There is no key here.";
             } else {
