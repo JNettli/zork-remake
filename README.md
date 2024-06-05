@@ -8,10 +8,7 @@ I used the base found [here](https://dev.to/shawn2208/building-a-mini-text-based
 ## Screenshot: 
 <div style="display: flex; flex-direction: row;">
   <a href="assets/readme/screenshot.jpg">
-    <img src="assets/readme/screenshot.jps" alt="Zork image" width="200"/>
-  </a>
-  <a href="assets/readme/screenshot.jpg">
-    <img src="assets/readme/screenshot.jps" alt="Zork image" width="200"/>
+    <img src="assets/readme/screenshot.jpg" alt="Zork image" width="1000"/>
   </a>
 </div>
 
